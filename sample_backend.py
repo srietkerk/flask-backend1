@@ -87,5 +87,12 @@ def get_user(id):
                return user
             elif request.method == 'DELETE':
                users['users_list'].remove(user)
+               resp = jsonify(success=True)
+               resp.status_code = 204
+               return resp
+      if request.method == 'DELETE':
+         resp = jsonify(success=False)
+         resp.status_code = 404
+         return resp
       return ({})
    return users
