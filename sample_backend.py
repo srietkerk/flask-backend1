@@ -73,7 +73,8 @@ def get_users():
       userToAdd = request.get_json()
       userToAdd['id'] = random_id()
       users['users_list'].append(userToAdd)
-      resp = jsonify(success=True)
+      resp = jsonify(success=True, id=userToAdd['id'], 
+         name=userToAdd['name'], job=userToAdd['job'] )
       resp.status_code = 201
       return resp
 
